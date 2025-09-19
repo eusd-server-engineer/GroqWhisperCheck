@@ -1,0 +1,23 @@
+{
+  "permissions": {
+    "allow": [
+      "WebSearch",
+      "WebFetch(domain:console.groq.com)",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:docs.claude.com)",
+      "WebFetch(domain:www.anthropic.com)",
+      "WebFetch(domain:doortoonline.com)",
+      "WebFetch(domain:medium.com)",
+      "WebFetch(domain:docs.astral.sh)",
+      "WebFetch(domain:realpython.com)",
+      "WebFetch(domain:www.datacamp.com)",
+      "WebFetch(domain:groq.com)",
+      "Bash(uv pip:*)",
+      "Bash(uv run gq:*)",
+      "Bash(where.exe gq:*)",
+      "Bash(git add:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

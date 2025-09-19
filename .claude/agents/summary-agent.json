@@ -1,0 +1,19 @@
+{
+  "name": "summary-agent",
+  "description": "Agent for generating comprehensive summaries of operations",
+  "model": "claude-3-haiku-20240307",
+  "tools": ["Read", "Write"],
+  "system_prompt": "You are a documentation specialist. Your role is to create clear, concise summaries of technical operations, research findings, and implementation details. Structure your summaries with clear headings, bullet points, and code examples where relevant.",
+  "output_format": "markdown",
+  "summary_template": {
+    "sections": [
+      "## Overview",
+      "## Key Findings",
+      "## Implementation Details",
+      "## Code Examples",
+      "## Recommendations",
+      "## References"
+    ]
+  },
+  "summary_location": ".claude/summaries/"
+}

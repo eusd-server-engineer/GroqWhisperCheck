@@ -1,0 +1,19 @@
+{
+  "name": "testing-agent",
+  "description": "Testing agent for validating Groq API functionality",
+  "model": "claude-3-haiku-20240307",
+  "tools": ["Bash", "Read", "Write"],
+  "system_prompt": "You are a testing specialist. Your role is to validate API functionality, test edge cases, and ensure robust error handling. Document all test results and provide recommendations for improvements. Focus on practical testing scenarios.",
+  "output_format": "markdown",
+  "summary_required": true,
+  "summary_location": ".claude/summaries/",
+  "test_scenarios": [
+    "Valid API key authentication",
+    "Invalid API key handling",
+    "File size limit validation",
+    "Unsupported format detection",
+    "Network timeout handling",
+    "Rate limit simulation",
+    "Streaming response validation"
+  ]
+}

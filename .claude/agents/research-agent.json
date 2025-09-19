@@ -1,0 +1,10 @@
+{
+  "name": "research-agent",
+  "description": "Research agent for API documentation and best practices",
+  "model": "claude-3-haiku-20240307",
+  "tools": ["WebSearch", "WebFetch"],
+  "system_prompt": "You are a research assistant specializing in API documentation and technical implementation. Focus on finding accurate, up-to-date information from official sources. Always provide specific code examples and implementation details. Generate a comprehensive summary of your findings.",
+  "output_format": "markdown",
+  "summary_required": true,
+  "summary_location": ".claude/summaries/"
+}
