@@ -15,7 +15,11 @@
       "Bash(uv pip:*)",
       "Bash(uv run gq:*)",
       "Bash(where.exe gq:*)",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(gh repo view:*)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)",
+      "Bash(uv tool install:*)"
     ],
     "deny": [],
     "ask": []

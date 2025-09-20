@@ -135,6 +135,12 @@ class WhisperTranscriber:
             # Convert response to dictionary if needed
             if hasattr(transcription, 'model_dump'):
                 result = transcription.model_dump()
+            elif hasattr(transcription, 'text'):
+                # It's a transcription object with text attribute
+                result = {'text': transcription.text}
+            elif isinstance(transcription, str):
+                # It's just a string
+                result = transcription
             else:
                 result = transcription
 

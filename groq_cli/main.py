@@ -156,7 +156,14 @@ def handle_transcription(
     console.print("\n[green]Transcription:[/green]")
     console.print("-" * 50)
 
-    transcript_text = result.get('text', '')
+    # Handle both string and dict responses
+    if isinstance(result, str):
+        transcript_text = result
+        # Convert to dict format for consistency
+        result = {'text': transcript_text}
+    else:
+        transcript_text = result.get('text', '')
+
     if transcript_text:
         # Wrap long text for better display
         from textwrap import fill
