@@ -82,3 +82,8 @@ temp/
 client_secrets.json
 oauth2.txt
 service_account.json
+
+# Personal setup files (contain API keys)
+setup_personal.ps1
+setup_personal.sh
+my_setup.ps1
