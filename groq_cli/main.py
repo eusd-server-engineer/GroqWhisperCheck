@@ -19,6 +19,7 @@ console = Console()
 
 
 @click.command()
+@click.argument('text', required=False, type=str)
 @click.option('-q', '--query', type=str, help='Query for chat completion')
 @click.option('-t', '--transcribe', is_flag=True, help='Switch to Whisper transcription mode')
 @click.option('-f', '--file', type=click.Path(exists=True, path_type=Path), help='Audio file for transcription')
@@ -33,6 +34,7 @@ console = Console()
 @click.option('--system', help='System prompt for chat')
 @click.option('--tier', type=click.Choice(['free', 'developer']), default='free', help='Account tier for file size limits')
 def cli(
+    text: Optional[str],
     query: Optional[str],
     transcribe: bool,
     file: Optional[Path],
@@ -52,7 +54,10 @@ def cli(
 
     Examples:
 
-        # Chat completion:
+        # Chat completion (shorthand):
+        groq "Explain quantum computing"
+
+        # Chat completion (explicit):
         groq -q "Explain quantum computing"
 
         # Transcription:
@@ -65,11 +70,15 @@ def cli(
         groq -t -f audio.wav --whisper-model whisper-large-v3 --format srt --output subtitles.srt
 
         # Chat with custom model:
-        groq -q "Write a poem" -m llama-3.3-70b-versatile --temperature 0.9
+        groq "Write a poem" -m llama-3.3-70b-versatile --temperature 0.9
 
         # Use compound model for research:
-        groq -q "What's the latest news about AI?" -m groq/compound
+        groq "What's the latest news about AI?" -m groq/compound
     """
+
+    # If positional text argument is provided, use it as query
+    if text and not query:
+        query = text
 
     # Check for API key
     if not api_key:

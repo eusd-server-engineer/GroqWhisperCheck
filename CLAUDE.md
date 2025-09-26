@@ -22,7 +22,10 @@ python test_groq.py
 # Test with audio file
 python test_groq.py sample.mp3
 
-# Test CLI directly
+# Test CLI directly (shorthand)
+python -m groq_cli.main "test query"
+
+# Test CLI directly (explicit)
 python -m groq_cli.main -q "test query"
 ```
 

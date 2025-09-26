@@ -61,19 +61,24 @@ gq -t -f audio.wav --whisper-model whisper-large-v3 --format srt --output subtit
 
 ### Chat Completion
 
-Simple query (uses Compound model with web search by default):
+Simple query (shorthand - uses Compound model with web search by default):
+```bash
+gq "What's the latest news about AI today?"
+```
+
+Or use explicit query flag:
 ```bash
 gq -q "What's the latest news about AI today?"
 ```
 
 Research with specific domains:
 ```bash
-gq -q "Latest quantum computing breakthroughs" -m groq/compound
+gq "Latest quantum computing breakthroughs" -m groq/compound
 ```
 
 With specific model:
 ```bash
-gq -q "Write a haiku" -m llama-3.1-8b-instant --temperature 0.9
+gq "Write a haiku" -m llama-3.1-8b-instant --temperature 0.9
 ```
 
 Interactive chat mode:
@@ -85,16 +90,17 @@ gq
 
 | Option | Description | Example |
 |--------|-------------|---------|
-| `-q, --query` | Text query for chat | `gq -q "Hello"` |
+| (text) | Query shorthand (no flag needed) | `gq "Hello"` |
+| `-q, --query` | Text query for chat (explicit) | `gq -q "Hello"` |
 | `-t, --transcribe` | Enable transcription mode | `gq -t -f audio.mp3` |
 | `-f, --file` | Audio file path | `gq -t -f "C:\audio\file.wav"` |
-| `-m, --model` | Chat model selection | `gq -q "Test" -m groq/compound` |
+| `-m, --model` | Chat model selection | `gq "Test" -m groq/compound` |
 | `--whisper-model` | Whisper model selection | `gq -t -f audio.mp3 --whisper-model whisper-large-v3` |
 | `--format` | Output format (text/json/srt/vtt) | `gq -t -f audio.mp3 --format srt` |
 | `--output` | Output file path | `gq -t -f audio.mp3 --output transcript.txt` |
 | `--language` | Language code for transcription | `gq -t -f audio.mp3 --language en` |
-| `--temperature` | Chat temperature (0-1) | `gq -q "Test" --temperature 0.5` |
-| `--api-key` | API key (alternative to env var) | `gq -q "Test" --api-key your_key` |
+| `--temperature` | Chat temperature (0-1) | `gq "Test" --temperature 0.5` |
+| `--api-key` | API key (alternative to env var) | `gq "Test" --api-key your_key` |
 
 ## Supported Models
 
@@ -126,7 +132,7 @@ The Compound AI model includes built-in tools:
 
 ### Example: Research Query
 ```bash
-gq -q "Research the latest developments in renewable energy and summarize the top 3 innovations"
+gq "Research the latest developments in renewable energy and summarize the top 3 innovations"
 ```
 
 The model automatically decides when to use web search, making it perfect for:
